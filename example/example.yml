@@ -1,0 +1,55 @@
+# 'title' is the name of the module that will be displayed to the user
+title: Example
+
+# 'version' is the version of the annotator. It is primarily used when 
+# publishing a module, but is required for all modules.
+version: 1.0.0
+
+# 'type' is the type of module described by this .yml file. In this case it is
+# 'annotator'
+type: annotator
+
+# 'level' is 'variant' or 'gene'
+level: variant
+
+secondary_inputs:
+  gnomad: {}
+  clinvar: {}
+
+requires:
+- gnomad
+- clinvar
+
+
+input_format: crx
+
+# output_columns has the columns that will be included in the output file.
+# The columns are defined in a list. Each column has three required keys:
+# name, title, and type.
+output_columns:
+- name: classification
+  title: Classification
+  type: string
+  desc: Pathogenic if LOF, Benign if not
+  width: 70
+- name: reason
+  title: Reason
+  type: string
+  desc: Gnomad or Clinvar
+  width: 70
+
+
+
+
+# description is a short description of what the annotator does. Try to limit it
+# to around 80 characters.
+description: Example annotator to classify LOF Variants
+
+# developer is you!
+developer:
+  name: ''
+  organization: ''
+  email: ''
+  website: ''
+  citation: ''
+
